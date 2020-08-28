@@ -2,15 +2,15 @@ package config;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-@Configuration
-@EnableTransactionManagement
-public class MemberConfig {
-	
+import db.StockDao;
+import db.StockLoad;
+
+public class StockConfig {
+
+	// DB 연결
 	@Bean(destroyMethod = "close")
 	public DataSource dataSource() {
 		DataSource ds = new DataSource();
@@ -35,5 +35,15 @@ public class MemberConfig {
 		return tm;
 	}
 	
+	// database 관련 데이터, 쿼리 class
+	@Bean
+	public StockDao stockDao() {
+		return new StockDao(dataSource());
+	}
 	
+	//memberDao를 관리/regist하는 class
+	@Bean
+	public StockLoad stockLoad() {
+		return new StockLoad(stockDao());
+	}
 }
