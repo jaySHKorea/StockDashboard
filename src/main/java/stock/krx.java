@@ -5,6 +5,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class krx {
 	
@@ -26,4 +33,20 @@ public class krx {
 	     }
 	 return null;
 	}
+	
+	 public Map<String, Object> parseJsonToMap(String json) {
+
+		  ObjectMapper mapper = new ObjectMapper();
+		  try {
+		   return mapper.readValue(json, new TypeReference<Map<String, Object>>() {
+		   });
+		  } catch (JsonParseException e) {
+		   e.printStackTrace();
+		  } catch (JsonMappingException e) {
+		   e.printStackTrace();
+		  } catch (IOException e) {
+		   e.printStackTrace();
+		  }
+		  return new HashMap<String, Object>();
+		 }
 }
