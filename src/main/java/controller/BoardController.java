@@ -10,7 +10,9 @@ import java.util.Map;
 
 import org.json.JSONObject;
 import org.json.XML;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fasterxml.jackson.core.JsonParseException;
@@ -18,25 +20,28 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import db.StockLoad;
+import db.StockService;
 
+@Controller
+@RequestMapping("/dashboard")
 public class BoardController {
 
 	// 멤버 변수 필요 ( MemberDao(DB)와 연결되는 클래스 )
-	private StockLoad stockLoad;
+	private StockService stockService;
 	
-	public void setStockLoad(
-			StockLoad stockLoad) {
-		this.stockLoad = stockLoad;
+	public void setStockService(
+			StockService stockService) {
+		this.stockService = stockService;
 	}
 	
 	// XML을 가져와서 View에 전송
-	 @RequestMapping(value = "/main")
-	 public void StockToMain(Model model) {
-	     String html = getHtml("http://asp1.krx.co.kr/servlet/krx.asp.XMLSise?code=035420");
-	     JSONObject json = XML.toJSONObject(html);
-	     Map<String, Object> resultMap = parseJsonToMap(json.toString());
-	     model.addAttribute("map", resultMap);
+	 @GetMapping
+	 public String Stocks(Model model) {
+	     //String html = getHtml("http://asp1.krx.co.kr/servlet/krx.asp.XMLSise?code=035420");
+	     //JSONObject json = XML.toJSONObject(html);
+	     //Map<String, Object> resultMap = parseJsonToMap(json.toString());
+	     //model.addAttribute("map", resultMap);
+		 return "dashboard/dashboard";
 	 }
 	 
 	// XML을 가져오기

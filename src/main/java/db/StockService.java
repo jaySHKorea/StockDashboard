@@ -1,10 +1,10 @@
 package db;
 
 // MemberRegisterService와 같은 역할
-public class StockLoad {
+public class StockService {
 	private StockDao stockDao;
 
-	public StockLoad(StockDao memberDao) {
+	public StockService(StockDao memberDao) {
 		this.stockDao = memberDao;
 	}
 }

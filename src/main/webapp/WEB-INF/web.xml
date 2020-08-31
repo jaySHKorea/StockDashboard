@@ -19,7 +19,7 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-				config.StockConfig
+				config.DbConfig
 				config.MvcConfig
 				config.ControllerConfig
 			</param-value>
