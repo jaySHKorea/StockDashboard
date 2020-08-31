@@ -4,7 +4,7 @@ package db;
 public class StockService {
 	private StockDao stockDao;
 
-	public StockService(StockDao memberDao) {
-		this.stockDao = memberDao;
+	public StockService(StockDao stockDao) {
+		this.stockDao = stockDao;
 	}
 }

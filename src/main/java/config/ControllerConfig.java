@@ -56,7 +56,7 @@ public class ControllerConfig {
 	@Bean
 	public BoardController boardController() {
 		BoardController controller = new BoardController();
-		controller.setStockService(stockService);
+		//controller.setStockService(stockService);
 		return controller;
 	}
 }

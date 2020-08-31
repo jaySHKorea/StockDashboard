@@ -5,6 +5,8 @@
     <title>에러</title>
 </head>
 <body>
-    잘못된 요청입니다.
+    존재하지 않는 종목입니다.
+  
+  <a href="<c:url value="/dashboard"/>">[대쉬보드로 돌아가기]</a>
 </body>
 </html>

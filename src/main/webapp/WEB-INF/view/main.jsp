@@ -19,7 +19,7 @@
 	<p>
 		<a href="<c:url value="/edit/changePassword" />">[비밀번호 변경]</a>
 		<a href="<c:url value="/logout" />">[로그아웃]</a>
-		<a href="<c:url value="/dashboard"/>">[대쉬보드]</a>
+		<a href="<c:url value="/dashboard/dashboard"/>">[대쉬보드]</a>
 	</p>
 	</c:if>
 </body>

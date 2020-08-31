@@ -14,7 +14,7 @@
         <a href="<c:url value='/main'/>">
             [<spring:message code="go.main" />]
         </a>
-        <a href="<c:url value='/dashboard'/>">
+        <a href="<c:url value='/dashboard/dashboard'/>">
         	[<spring:message code="go.dashboard"/>]
         </a>
     </p>

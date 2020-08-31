@@ -46,11 +46,13 @@ public class MvcConfig implements WebMvcConfigurer{
 		return ms;
 	}
 	
+	//인터셉터
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(authCheckInterceptor()).addPathPatterns("/edit/**");
 	}
 
+	//auth checking
 	@Bean
 	public HandlerInterceptor authCheckInterceptor() {
 		return new AuthCheckinterceptor();
